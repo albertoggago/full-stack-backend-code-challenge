@@ -1,0 +1,17 @@
+
+ <div  class="container">
+      <br>
+      <div class="form-inline" >
+      	<form #form="ngForm">
+      		<div class="input-group mb-3">
+        			<span class="input-group-addon" id="basic-addon1">Search</span>
+        			<input class="form-control" id="searchText" name="searchText" [(ngModel)]="searching" placeholder="Fill words of git projects..."  [ngModelOptions]="{standalone: true}" required/>
+        	</div>
+        	<button type="submit" class="btn btn-primary" (click)="onSearching()" [disabled]="searching==''">
+        		Search
+        	</button>
+        </form>
+      </div>
+<br>
+</div>
+<app-list-git-projects [gitInformation]="gitInformation"></app-list-git-projects>

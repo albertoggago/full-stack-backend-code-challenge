@@ -1,0 +1,13 @@
+<div *ngIf="gitInformation" >
+	<button *ngFor="let gitElement of gitInformation.items"  (click)="showTwitters()" class="list-group-item list-group-item-action flex-column align-items-start">
+		<div class="d-flex w-100 justify-content-between">
+      		<h5 class="mb-1"><a href="{{gitElement.html_url}}" target="_blank">{{gitElement.name}}</a></h5>
+      		<small class="text-muted">forks: {{gitElement.forks}}</small>
+    	</div>
+    	<p class="mb-1">{{gitElement.description}}</p>
+    	<small class="text-muted">{{gitElement.full_name}}</small>
+	</button>
+</div>
+<div>
+	<app-list-twitters></app-list-twitters>
+</div>
