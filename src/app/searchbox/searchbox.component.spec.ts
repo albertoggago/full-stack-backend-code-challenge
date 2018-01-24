@@ -2,6 +2,7 @@ import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { FormsModule } from '@angular/forms'; 
 import { SearchboxComponent } from './searchbox.component';
 import { GitApiService } from '../git-api.service';
+import { TwitterApiService } from '../twitter-api.service';
 import { HttpClientModule } from '@angular/common/http';  
 import { ListGitProjectsComponent } from '../list-git-projects/list-git-projects.component';
 import { ListTwittersComponent } from '../list-twitters/list-twitters.component';
@@ -17,7 +18,7 @@ describe('SearchboxComponent', () => {
         ListTwittersComponent
        ],
       imports:[FormsModule,HttpClientModule],
-      providers:[GitApiService]
+      providers:[GitApiService,TwitterApiService]
     })
     .compileComponents();
   }));

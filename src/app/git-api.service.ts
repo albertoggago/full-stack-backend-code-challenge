@@ -4,12 +4,13 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { catchError, tap } from 'rxjs/operators';
 import { of } from 'rxjs/observable/of';
 import {GitInformation} from './interfaces/git-information.interface';
+import { TwitterService } from 'ng2-twitter';
 
 
 const httpOptions = {
   headers: new HttpHeaders({ 'Content-Type': 'application/json' })
 };
-
+ 
 @Injectable()
 export class GitApiService {
 
@@ -19,12 +20,12 @@ export class GitApiService {
   	private http: HttpClient
     ) { }
 
-  finding(entrada:string): Observable<GitInformation>{
- 	const url = this.Path+entrada+"&sort=stars";
+  finding(gitName:string): Observable<GitInformation>{
+ 	const url = this.Path+gitName+"&sort=stars";
 	return this.http.get<GitInformation>(url)
     		.pipe(
           		tap( output => console.log("getAllGit")),
-        		catchError(this.handleError('Error buscando correos valor ${valor}',[]))
+        		catchError(this.handleError('Error looking for gits ${valor}',[]))
     		);
   }
 
