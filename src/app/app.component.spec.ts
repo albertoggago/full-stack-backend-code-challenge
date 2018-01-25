@@ -7,6 +7,7 @@ import { TwitterApiService } from './twitter-api.service';
 import { HttpClientModule } from '@angular/common/http';  
 import { ListGitProjectsComponent } from './list-git-projects/list-git-projects.component';
 import { ListTwittersComponent } from './list-twitters/list-twitters.component';
+import { HttpModule } from '@angular/http';  
 
 
 
@@ -18,9 +19,10 @@ describe('AppComponent', () => {
         AppComponent,
         SearchboxComponent,
         ListGitProjectsComponent,
-        ListTwittersComponent        
+        ListTwittersComponent,
+
       ],
-      imports:[FormsModule,HttpClientModule],
+      imports:[FormsModule,HttpClientModule,HttpModule],
       providers:[GitApiService,TwitterApiService]
     }).compileComponents();
   }));

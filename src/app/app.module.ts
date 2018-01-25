@@ -2,7 +2,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms'; 
 import { HttpClientModule } from '@angular/common/http';  
-import { HTTP_INTERCEPTORS } from '@angular/common/http';
+import { HttpModule } from '@angular/http';  
 
 import { AppComponent } from './app.component';
 import { SearchboxComponent } from './searchbox/searchbox.component';
@@ -10,7 +10,6 @@ import { ListGitProjectsComponent } from './list-git-projects/list-git-projects.
 import { ListTwittersComponent } from './list-twitters/list-twitters.component';
 
 import { TwitterApiService } from './twitter-api.service';
-import { TwitterApiInterceptor } from './twitter-api.interceptor';
 import { GitApiService } from './git-api.service';
 
 
@@ -24,15 +23,12 @@ import { GitApiService } from './git-api.service';
   imports: [
     BrowserModule,
     FormsModule,
-    HttpClientModule
+    HttpClientModule,
+    HttpModule
   ],
   providers: [TwitterApiService,
-              GitApiService,
-              {
-                provide: HTTP_INTERCEPTORS,
-                useClass: TwitterApiInterceptor,
-                 multi: true
-              }],
+              GitApiService
+              ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

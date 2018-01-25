@@ -13,6 +13,7 @@ export class SearchboxComponent implements OnInit {
 
 searching : string = "";
 gitInformation  : GitInformation  ;
+maxSearchs: Number = 10; 
 
   constructor(
   	private gitApiService: GitApiService,
@@ -29,8 +30,9 @@ gitInformation  : GitInformation  ;
         //Load data of Twitter
         if (this.gitInformation.items) {
           for( var gitIndex: number = 0;
-                gitIndex < this.gitInformation.items.length && gitIndex < 1; gitIndex++)
+                gitIndex < this.gitInformation.items.length && gitIndex < 10; gitIndex++)
           {
+            console.log("Send twitter");
             this.onFindingTwitter(gitIndex);
           }
         }
@@ -38,13 +40,16 @@ gitInformation  : GitInformation  ;
   }
 
   onFindingTwitter(i:number){
+    console.log("Send"+i);
     let gitName : string = this.gitInformation.items[i].name; 
-    this.twitterApiService.findingHashtag(gitName)
-        .subscribe(twitts => {
-            console.log("Twitter "+i+" "+gitName);
-            console.log(twitts);
-          })
-      }
+    //this.twitterApiService.findingHashtag(gitName)
+    //    .subscribe(twitts => {
+    //        console.log("Twitter "+i+" "+gitName);
+    //        console.log(twitts);
+    //      })
+    let info = this.twitterApiService.fetchTimeline();
+    console.log(info);
+    }
 
 
 }
