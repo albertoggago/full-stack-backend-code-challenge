@@ -10,8 +10,7 @@ describe('ListGitProjectsComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ ListGitProjectsComponent,
-        ListTwittersComponent ]
+      declarations: [ ListGitProjectsComponent,ListTwittersComponent]
     })
     .compileComponents();
   }));
@@ -25,10 +24,4 @@ describe('ListGitProjectsComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
-  it('should have ListTwittersComponent', async(() => {
-    const fixture = TestBed.createComponent(ListGitProjectsComponent);
-    fixture.detectChanges();
-    const compiled = fixture.debugElement.nativeElement;
-    expect(compiled.querySelector('app-list-twitters').textContent).toBeDefined();
-  }));
 });

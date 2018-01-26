@@ -6,5 +6,7 @@ export class GitInformation  {
         full_name:  string;
         description: string;
         stars: string;
+        tweets: any;
     }[];
+
 }   

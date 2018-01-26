@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, } from '@angular/core';
 import { TwitterApiService } from './twitter-api.service'
 
 @Component({
@@ -15,20 +15,5 @@ export class AppComponent {
   	) { }
 
 
- ngOnInit() {
- 	this.startSignInFlow();
-  }
-
-
-  startSignInFlow():void{
-    let tempStr:string;
-    let self = this;
-    this.twitterApiService.onSignIn().then(function (response) {
-      tempStr = response["_body"];
-      let a = tempStr.indexOf("&");
-      let token = tempStr.substr(0,a);
-      window.location.href = "https://api.twitter.com/oauth/authenticate?"+token;
-    });
-  }
 
 }

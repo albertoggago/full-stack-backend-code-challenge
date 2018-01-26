@@ -8,6 +8,9 @@
 # dependencies
 /node_modules
 
+#keys
+/keys.json
+
 # IDEs and editors
 /.idea
 .project

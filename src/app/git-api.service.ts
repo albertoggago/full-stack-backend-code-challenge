@@ -20,7 +20,7 @@ export class GitApiService {
   	private http: HttpClient
     ) { }
 
-  finding(gitName:string): Observable<GitInformation>{
+  findingGits(gitName:string): Observable<GitInformation>{
  	const url = this.Path+gitName+"&sort=stars";
 	return this.http.get<GitInformation>(url)
     		.pipe(

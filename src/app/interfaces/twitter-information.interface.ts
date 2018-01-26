@@ -1,10 +1,10 @@
 export class TwitterInformation {
-	items:  {
-        forks: boolean;
-        html_url: string;
-        name:  string;
-        full_name:  string;
-        description: string;
-        stars: string;
-    }[];
+	 text:  string;
+     created_at:  Date;
+     user: {
+     	name: string;
+     	profile_image_url: string;
+     };
+     retweet_count: number;
+    
 }   

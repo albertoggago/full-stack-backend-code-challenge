@@ -24,7 +24,7 @@ maxSearchs: Number = 10;
   }
 
   onSearching() {
-  	this.gitApiService.finding(this.searching)
+  	this.gitApiService.findingGits(this.searching)
        .subscribe(elementos => {
        	this.gitInformation = elementos;
         //Load data of Twitter
@@ -32,24 +32,18 @@ maxSearchs: Number = 10;
           for( var gitIndex: number = 0;
                 gitIndex < this.gitInformation.items.length && gitIndex < 10; gitIndex++)
           {
-            console.log("Send twitter");
-            this.onFindingTwitter(gitIndex);
+            this.onFindingTwitter(gitIndex, this.gitInformation.items[gitIndex].name);
           }
         }
         })
   }
 
-  onFindingTwitter(i:number){
-    console.log("Send"+i);
-    let gitName : string = this.gitInformation.items[i].name; 
-    //this.twitterApiService.findingHashtag(gitName)
-    //    .subscribe(twitts => {
-    //        console.log("Twitter "+i+" "+gitName);
-    //        console.log(twitts);
-    //      })
-    let info = this.twitterApiService.fetchTimeline();
-    console.log(info);
-    }
+  onFindingTwitter(indexGit: number, name:string) {
+    this.twitterApiService.findTweets(name)
+       .subscribe(elementos => {
+        this.gitInformation.items[indexGit].tweets = elementos; 
+        })
+  }
 
 
 }

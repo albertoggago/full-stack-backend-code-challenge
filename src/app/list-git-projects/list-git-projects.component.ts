@@ -1,5 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { NgForOf } from '@angular/common';
+import { TwitterInformation } from '../interfaces/twitter-information.interface';
 
 import {GitInformation} from '../interfaces/git-information.interface';
 
@@ -11,13 +12,14 @@ import {GitInformation} from '../interfaces/git-information.interface';
 export class ListGitProjectsComponent implements OnInit {
 @Input() gitInformation: GitInformation;
 
+  tweets : TwitterInformation; 
   constructor() { }
 
   ngOnInit() {
   }
 
-  showTwitters(){
-  	console.log("xxxx");
+  showTwitters(tweetsSelected: TwitterInformation){
+  	this.tweets = tweetsSelected;
   }
 
 }
